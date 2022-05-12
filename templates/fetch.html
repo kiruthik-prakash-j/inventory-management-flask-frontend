@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/fetch.css') }}">
+{% endblock %}
+
+{% block body %}
+<form method="POST">
+
+    <label for="item-name">
+        Item name
+    </label>
+    
+    <input type="text"  value="{{ item_name }}" id="item-name" name="item_name">
+
+    <label for="row-no">
+      Row Number
+    </label>
+  
+    <input type="text" value="{{ row_no }}" id="row-no" name="row_no" readonly>
+  
+    <label for="column-no">
+      Column Number
+    </label>
+  
+    <input type="text" value="{{ column_no }}" id="column-no" name="column_no" readonly>
+  
+    <label for="quantity">
+        Quantity
+      </label>
+    
+      <input type="text" id="quantity" placeholder=" &lt;={{quantity}} " name="quantity" required>
+
+    <input type="submit" value="Send" id="sendBtn">
+  
+  </form>
+{% endblock %}

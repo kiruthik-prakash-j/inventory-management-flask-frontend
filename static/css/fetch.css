@@ -1,0 +1,41 @@
+body {
+    font-family: sans-serif;
+  }
+  
+  form {
+    max-width: 500px;
+    margin: 2rem auto;
+    border: 2px solid #000;
+    padding: 2rem;
+  }
+  
+  label {
+    display: block;
+    padding: 1rem 0 0.25rem;
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+  
+  input,
+  textarea {
+    display: block;
+    width: 100%;
+    border: 2px solid;
+    padding: 0.5rem;
+    font-size: 18px;
+    border-radius: 5px;
+  }
+  
+  #sendBtn {
+    padding: 0.5rem;
+    margin: 1rem 0;
+    width: auto;
+    text-transform: uppercase;
+  }
+  
+  #sendBtn:hover {
+    cursor: pointer;
+    background: #939598;
+    transition: 0.3s background ease;
+  }
+  

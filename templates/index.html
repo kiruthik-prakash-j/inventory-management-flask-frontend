@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<h1>INVENTORY</h1>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+{% endblock %}
+
+{% block body %}
+
+<div class="container center" style="text-align: center; ">
+    <table class="table" align="center">
+        <tbody>{% for row in range(total_rows) -%}
+            <tr>{% for column in range(total_cols) -%}
+                <td class="table-cell">
+                    {% if inventory[row][column].is_empty: -%}
+                        Empty
+                    {% else -%}
+                        {{ inventory[row][column].item_name}} : {{inventory[row][column].quantity}}<br>
+                        <button class="custom-btn btn-5"><span><a href="{{url_for('retreive_item', row_no=row, column_no=column, item_name=inventory[row][column].item_name, quantity=inventory[row][column].quantity)}}"> Fetch</a></span></button>
+                    {%- endif %}
+                </td>
+                {%- endfor %}
+            </tr>
+        {%- endfor %}
+        </tbody>
+    </table>    
+</div>  
+<div>
+    <button class="custom-btn btn-3"><span><a href="{{url_for('insert_new')}}">Insert New</a></span></button>
+</div>
+<div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/forms.css') }}">
+{% endblock %}
+
+{% block body %}
+<form id="form" method="POST">
+    <h1 id="title-form">New Item</h1>
+    <div id="content-inputs">
+      <input type="text" placeholder="Item Name" name="item_name" class="input">
+      <input type="text" placeholder="Quantity" name="quantity" class="input">
+  
+    </div>
+    <input type="submit" value="Insert" class="btn">
+  </form>
+{% endblock %}
