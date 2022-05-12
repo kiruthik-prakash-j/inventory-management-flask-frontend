@@ -6,7 +6,7 @@ FastAPI server : [https://github.com/kiruthik-prakash-j/inventory-management-fas
 
 ### Clone the repo:
 ```
-git clone 
+git clone https://github.com/kiruthik-prakash-j/inventory-management-flask-frontend.git
 ```
 
 ### Create .env file:
