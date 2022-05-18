@@ -9,6 +9,7 @@ class Settings(BaseSettings):
     TOTAL_ROWS: int
     TOTAL_COLUMNS: int
     BASE_URL: str
+    AMSNETID: str
     
     class Config:
         env_file = ".env"

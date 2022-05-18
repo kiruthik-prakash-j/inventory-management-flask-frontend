@@ -2,7 +2,7 @@ import requests
 import json
 from schemas import Rack, Item, ItemDB
 from config import settings
-
+from plc import plc_store, plc_retreive
 
 def print_details(item):
     print(f"Name      :{item.item_name}")
@@ -158,6 +158,9 @@ def insert_new_item(new_item):
         headers=post_header
     )
 
+    # Sent Insert Instruction to the PLC
+    plc_store(x_cord=row_no, y_cord=column_no)
+
     return post_response
 
 
@@ -206,6 +209,10 @@ def fetch_item(row_no, col_no, quantity):
     if inventory[row_no][col_no].quantity == quantity:
         # Delete item from DB
         delete_item(id)
+
+        # Send Fetch Instruction to the PLC
+        plc_retreive(x_cord=row_no, y_cord=col_no)
+
         return print(f"Item removed from DB !")
 
     # change the item's quantity
@@ -240,4 +247,7 @@ def fetch_item(row_no, col_no, quantity):
 
     # put_response.raise_for_status()
 
+    # Send Fetch Instruction to the PLC
+    plc_retreive(x_cord=row_no, y_cord=col_no)
+    
     return put_response
